@@ -185,7 +185,7 @@ main {
 }
 .crew-image img {
   height: 222px;
-  width: auto;
+  width: 200px;
 }
 
 .crew-image {
@@ -195,6 +195,10 @@ main {
   justify-content: center;
   border-bottom: 1px solid rgba(128, 128, 128, 0.356);
   width: 100%;
+}
+
+.owl-carousel .owl-item img {
+  width: 200px;
 }
 
 .title span {
@@ -386,6 +390,8 @@ h1 {
 
   .crew-image {
     border-bottom: none;
+    margin: 0;
+    bottom: 0;
   }
 
   .crew-image img {
