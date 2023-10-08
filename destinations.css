@@ -104,6 +104,7 @@ nav {
   backdrop-filter: blur(80px);
   padding-top: 8rem;
   z-index: 99;
+  visibility: hidden;
   transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
   transform: translateX(100%);
 }
