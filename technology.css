@@ -110,13 +110,10 @@ nav {
   padding-top: 8rem;
   z-index: 99;
   visibility: hidden;
-  transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
-  transform: translateX(100%);
 }
 
 .show-nav {
   visibility: visible;
-  transform: translateX(0);
 }
 
 nav ul li {
@@ -273,6 +270,8 @@ h2 {
   font-family: var(--ff-bellefair);
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
+  width: 100%;
+  text-align: center;
 }
 
 h1 {
@@ -499,6 +498,7 @@ picture img {
 
   h2 {
     font-size: 1.5rem;
+    text-align: left;
   }
 
   .primary-content p {

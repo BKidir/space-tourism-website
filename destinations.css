@@ -105,13 +105,10 @@ nav {
   padding-top: 8rem;
   z-index: 99;
   visibility: hidden;
-  transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
-  transform: translateX(100%);
 }
 
 .show-nav {
   visibility: visible;
-  transform: translateX(0);
 }
 
 nav ul li {
