@@ -51,13 +51,7 @@ select {
 /*
     8. Avoid text overflows
   */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p {
   overflow-wrap: break-word;
 }
 /*
@@ -111,15 +105,15 @@ nav {
   -webkit-backdrop-filter: blur(80px);
   backdrop-filter: blur(80px);
   padding-top: 8rem;
-  z-index: 99999;
+  z-index: 99;
   visibility: hidden;
+  transition: 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: translateX(100%);
 }
 
-.active {
-  display: block;
-  transform: translateX(0);
-  transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+.show-nav {
   visibility: visible;
+  transform: translateX(0);
 }
 
 nav ul li {
@@ -139,29 +133,59 @@ nav ul {
   margin-bottom: 2rem;
 }
 
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 999;
+  width: 44px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: var(--color-white);
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.ham7 .top {
+  stroke-dasharray: 40 82;
+}
+.ham7 .middle {
+  stroke-dasharray: 40 111;
+}
+.ham7 .bottom {
+  stroke-dasharray: 40 161;
+}
+.ham7.active .top {
+  stroke-dasharray: 17 82;
+  stroke-dashoffset: -62px;
+}
+.ham7.active .middle {
+  stroke-dashoffset: 23px;
+}
+.ham7.active .bottom {
+  stroke-dashoffset: -83px;
+}
+
 .number {
   margin-right: 0.8rem;
   font-weight: bold;
   font-family: var(--ff-barlow);
   font-size: 1rem;
   letter-spacing: 2.7px;
-}
-
-.hamburger-menu {
-  cursor: pointer;
-  position: absolute;
-  right: 24px;
-}
-
-.close-icon {
-  display: none;
-  cursor: pointer;
-  z-index: 999999;
-}
-
-.show {
-  display: flex;
-  z-index: 999999;
 }
 
 main {
@@ -325,7 +349,7 @@ h1 {
     padding-bottom: 2.3rem;
   }
 
-  .hamburger-menu {
+  svg.ham.hamRotate.ham7 {
     display: none;
   }
 

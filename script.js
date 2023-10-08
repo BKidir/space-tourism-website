@@ -1,27 +1,31 @@
-const menu = document.querySelector(".hamburger-menu");
-const closeIcon = document.querySelector(".close-icon");
+const menus = document.querySelectorAll("svg.ham.hamRotate.ham7");
 const nav = document.querySelector("nav");
 
-menu.addEventListener("click", () => {
-  nav.classList.add("active");
-  closeIcon.classList.add("show");
-});
-
-closeIcon.addEventListener("click", () => {
-  nav.classList.remove("active");
-  closeIcon.classList.remove("show");
+menus.forEach((menu) => {
+  menu.addEventListener("click", function () {
+    nav.classList.toggle("show-nav");
+    this.classList.toggle("active");
+  });
 });
 
 document.addEventListener("click", function (e) {
-  if (
-    !nav.contains(e.target) &&
-    !closeIcon.contains(e.target) &&
-    !menu.contains(e.target)
-  ) {
-    nav.classList.remove("active");
-    closeIcon.classList.remove("show");
+  if (!nav.contains(e.target) && !isMenuClicked(menus, e.target)) {
+    nav.classList.remove("show-nav");
+    menus.forEach((menu) => {
+      menu.classList.remove("active"); // revert the menu to its original state
+    });
   }
 });
+
+function isMenuClicked(menus, target) {
+  let clickedInsideMenu = false;
+  menus.forEach((menu) => {
+    if (menu.contains(target)) {
+      clickedInsideMenu = true;
+    }
+  });
+  return clickedInsideMenu;
+}
 
 const navLinks = document.querySelectorAll("nav a");
 
