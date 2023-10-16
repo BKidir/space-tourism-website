@@ -72,14 +72,36 @@
 .owl-carousel .owl-nav button.owl-next,
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel button.owl-dot {
-  background: rgba(255, 255, 255, 0.078);
+  background: rgba(255, 255, 255, 0.1);
   color: white;
   border: none;
-  padding: 0 1rem !important;
-  font: inherit;
-  font-size: 5rem;
+  /* font: inherit; */
+  font-size: 4rem;
   position: absolute;
   top: 50%;
+  padding: 0 1rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .owl-carousel .owl-nav button.owl-next,
+  .owl-carousel .owl-nav button.owl-prev {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    font: inherit;
+    position: absolute;
+    top: 50%;
+    padding: 0;
+  }
+
+  button.owl-next span,
+  button.owl-prev span {
+    margin: 0;
+    padding: 0 1rem;
+    border-radius: 2px;
+    font-size: 44px;
+  }
 }
 
 .owl-carousel .owl-nav button.owl-next {
