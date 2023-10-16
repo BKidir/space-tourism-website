@@ -98,19 +98,12 @@
           <div class="content-wrapper">
             <ul class="circle-buttons">
               <li>
-                <a class="active-circle" href="./crew-commander.html"></a>
+                <a class="active-circle" data-slide-index="0" href="#"></a>
               </li>
-              <li>
-                <a href="./crew-specialist.html"></a>
-              </li>
-              <li>
-                <a href="./crew-pilot.html"></a>
-              </li>
-              <li>
-                <a href="./crew-engineer.html"></a>
-              </li>
+              <li><a data-slide-index="1" href="#"></a></li>
+              <li><a data-slide-index="2" href="#"></a></li>
+              <li><a data-slide-index="3" href="#"></a></li>
             </ul>
-
             <div class="primary-content">
               <h2>Commander</h2>
               <h1>Douglas Hurley</h1>
@@ -133,19 +126,14 @@
           <div class="content-wrapper">
             <ul class="circle-buttons">
               <li>
-                <a href="./crew-commander.html"></a>
+                <a data-slide-index="0" href="#"></a>
               </li>
               <li>
-                <a class="active-circle" href="./crew-specialist.html"></a>
+                <a class="active-circle" data-slide-index="1" href="#"></a>
               </li>
-              <li>
-                <a href="./crew-pilot.html"></a>
-              </li>
-              <li>
-                <a href="./crew-engineer.html"></a>
-              </li>
+              <li><a data-slide-index="2" href="#"></a></li>
+              <li><a data-slide-index="3" href="#"></a></li>
             </ul>
-
             <div class="primary-content">
               <h2>Mission Specialist</h2>
               <h1>Mark Shuttleworth</h1>
@@ -170,19 +158,14 @@
           <div class="content-wrapper">
             <ul class="circle-buttons">
               <li>
-                <a href="./crew-commander.html"></a>
+                <a data-slide-index="0" href="#"></a>
               </li>
+              <li><a data-slide-index="1" href="#"></a></li>
               <li>
-                <a href="./crew-specialist.html"></a>
+                <a class="active-circle" data-slide-index="2" href="#"></a>
               </li>
-              <li>
-                <a class="active-circle" href="./crew-pilot.html"></a>
-              </li>
-              <li>
-                <a href="./crew-engineer.html"></a>
-              </li>
+              <li><a data-slide-index="3" href="#"></a></li>
             </ul>
-
             <div class="primary-content">
               <h2>Pilot</h2>
               <h1>Victor Glover</h1>
@@ -207,19 +190,14 @@
           <div class="content-wrapper">
             <ul class="circle-buttons">
               <li>
-                <a href="./crew-commander.html"></a>
+                <a data-slide-index="0" href="#"></a>
               </li>
+              <li><a data-slide-index="1" href="#"></a></li>
+              <li><a data-slide-index="2" href="#"></a></li>
               <li>
-                <a href="./crew-specialist.html"></a>
-              </li>
-              <li>
-                <a href="./crew-pilot.html"></a>
-              </li>
-              <li>
-                <a class="active-circle" href="./crew-engineer.html"></a>
+                <a class="active-circle" data-slide-index="3" href="#"></a>
               </li>
             </ul>
-
             <div class="primary-content">
               <h2>Flight Engineer</h2>
               <h1>Anousheh Ansari</h1>
@@ -232,6 +210,10 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="owl-nav">
+        <div class="owl-prev"></div>
+        <div class="owl-next"></div>
       </div>
     </main>
 
@@ -256,25 +238,32 @@
 
     <script>
       $(document).ready(function () {
-        $(".owl-carousel").owlCarousel();
-      });
+        var owl = $(".owl-carousel");
 
-      $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: false,
-        dots: false,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          600: {
-            items: 1,
-          },
-          1000: {
-            items: 1,
-          },
-        },
+        owl.owlCarousel({
+          items: 1,
+          loop: true,
+          margin: 10,
+          nav: true,
+          dots: false,
+        });
+
+        // Handle circle button clicks
+        $(".circle-buttons a").on("click", function (e) {
+          e.preventDefault();
+
+          // Remove the "active" class from all circle buttons
+          $(".circle-buttons a").removeClass("active");
+
+          // Add the "active" class to the clicked circle button
+          $(this).addClass("active");
+
+          // Get the data-slide-index attribute from the clicked button
+          var slideIndex = $(this).data("slide-index");
+
+          // Go to the specified slide
+          owl.trigger("to.owl.carousel", slideIndex);
+        });
       });
     </script>
   </body>
