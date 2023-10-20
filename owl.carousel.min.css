@@ -98,9 +98,10 @@
   button.owl-next span,
   button.owl-prev span {
     margin: 0;
-    padding: 0 1rem;
+    padding: 0 12px;
     border-radius: 2px;
-    font-size: 44px;
+    font-size: 2rem;
+    line-height: 1.5;
   }
 }
 
